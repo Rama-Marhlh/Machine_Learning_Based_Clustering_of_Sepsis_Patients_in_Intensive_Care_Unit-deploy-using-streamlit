@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4e4dc;
+            justify-content: center;
+            align-items: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            background-color: #f4e4dc;
+        }
+        .header img {
+            width: auto;
+            max-width: 300px; 
+            height: auto; 
+            display: block;
+            margin-right: auto;  
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            list-style-type: none;
+            margin: 0;
+            padding: 50px;
+        }
+        .nav-links li {
+            padding: 0 5px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background: #f7c4c1;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: #e6b3b0;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 0;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .main-content h1 {
+            font-family: 'Lilita One', cursive;
+            margin-bottom: 0.2em;
+            color: #c51718;
+            font-size: 70px;
+        }
+        .main-content .text-content {
+            margin-right: 20px;
+        }
+        .main-content h1:last-of-type {
+            color: #000000;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        #cluster-description {
+            font-size: 20px;
+            font-family: 'Lilita One', cursive;
+        }
+        #cluster-image {
+            width: 650px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    </header>
+    <div class="content-container">
+        <main class="main-content">
+            <div class="text-content">
+                <h1>Prediction Result</h1>
+                <h1 id="cluster-header">Cluster: <span id="cluster-number">{{ prediction }}</span></h1>
+                <p id="cluster-description"></p>
+            </div>
+            <img id="cluster-image" style="margin-left: 150px;" src="" alt="Cluster Image">
+        </main>
+    </div>
+    <script>
+        function setClusterDescription() {
+            var clusterNumber = document.getElementById('cluster-number').innerText;
+            var description = "";
+            var imagePath = "";
+
+            switch (clusterNumber) {
+                case "0":
+                    description = "Critical Care and Chronic Conditions";
+                    imagePath = "/static/images/cluster0.png";
+                    break;
+                case "1":
+                    description = "Elderly with Moderate Acute Concerns";
+                    imagePath =  "/static/images/cluster1.png";
+                    break;
+                case "2":
+                    description = "Largest Cluster with Stabilized Patients";
+                    imagePath =  "/static/images/cluster2.png";
+                    break;
+                case "3":
+                    description = "Elderly with Significant Chronic Issues";
+                    imagePath =  "/static/images/cluster3.png";
+                    break;
+                case "4":
+                    description = "Elderly with High Acuity and Comorbidities";
+                    imagePath ="/static/images/Cluster4.png";
+                    break;
+                case "5":
+                    description = "Large, Diverse Patient Group with Chronic and Acute Conditions";
+                    imagePath = "/static/images/cluster5.png";
+                    break;
+                case "6":
+                    description = "Youngest, Highly Dependent on Intensive Care";
+                    imagePath =  "/static/images/cluster6.png";
+                    break;
+                default:
+                    description = "Unspecified Group";
+            }
+            document.getElementById('cluster-description').innerText = description;
+            document.getElementById('cluster-image').src = imagePath;
+        }
+        window.onload = setClusterDescription;
+    </script>
+</body>
+</html>

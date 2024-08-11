@@ -1,0 +1,139 @@
+import streamlit as st
+
+# Define CSS styles for custom design
+st.markdown("""
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f4e4dc;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+        background-color: #f4e4dc;
+    }
+    .header img {
+        max-width: 300px;
+        height: auto;
+        margin-right: auto;
+    }
+    .form-container {
+        max-width: 800px;
+        height: 450px;
+        margin: 20px 0;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow-y: scroll;
+        margin-right: 60px;
+    }
+    .corner-images {
+        position: relative;
+        overflow: hidden;
+    }
+    .corner-images::before,
+    .corner-images::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(10deg);
+    }
+    .corner-images::before {
+        top: -50px;
+        left: -210px;
+        background-image: url("https://your_image_url/1.png");
+        transform: rotate(20deg);
+    }
+    .corner-images::after {
+        top: -50px;
+        right: -120px;
+        background-image: url("https://your_image_url/1.png");
+        transform: rotate(-5deg);
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        list-style-type: none;
+        margin: -50px 0 0;
+        padding: 50px;
+    }
+    .nav-links li {
+        padding: 0 5px;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 10px;
+        background: #f7c4c1;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+    }
+    .nav-links a:hover {
+        background-color: #e6b3b0;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .main-content {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .main-content h1 {
+        color: #c51718;
+        font-size: 40px;
+        font-family: 'Lilita One', cursive;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Header with logo
+st.markdown("""
+    <div class="header">
+        <img src="https://your_image_url/logo.png" alt="Logo">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+""", unsafe_allow_html=True)
+
+# Main content
+st.markdown("""
+    <div class="main-content">
+        <h1>Contact Us!</h1>
+        <h1>Bushra Alziara: bsr0189040@ju.edu.jo</h1>
+        <h1>Rama Almrahleh: ram0200609@ju.edu.jo</h1>
+        <h1>Razan Otoum: rza0208090@ju.edu.jo</h1>
+        <h1>Hala Nassar: hla0204802@ju.edu.jo</h1>
+        <h1>Dr. Mousa Al-Akhras: mousa.akhras@ju.edu.jo</h1>
+        <h1>Dr. Ali Alrodan: a.rodan@ju.edu.jo</h1>
+    </div>
+""", unsafe_allow_html=True)
+
+# Footer
+st.markdown("""
+    <div class="footer">
+        <p>&copy; 2024 Sepsis Management App. All rights reserved.</p>
+    </div>
+""", unsafe_allow_html=True)
